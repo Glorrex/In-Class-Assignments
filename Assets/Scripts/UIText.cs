@@ -6,7 +6,7 @@ public class UIText : MonoBehaviour
 {
     public Text LivesText;
     public Text scoreText;
-    public Text coinText;
+    public Text coinsText;
     private GameObject gameManager;
     private int Lives;
     private int coins;
@@ -25,5 +25,9 @@ public class UIText : MonoBehaviour
     {
         Lives = gameManager.GetComponent<GameManager>().getLives();
         LivesText.text = "Lives = " + Lives;
+        score = gameManager.GetComponent<GameManager>().getScore();
+        scoreText.text = "Score =" + score;
+        coins = gameManager.GetComponent<GameManager>().getCoins();
+        coinsText.text = "coins =" + coins;
     }
 }
