@@ -21,13 +21,17 @@ public class Coin : MonoBehaviour
 
 
         //check for player tag
+        if (collision.CompareTag("Player"))
+        {
+            //Increase Coin counter
+            gameManager.addCoin();
+            //Increase Score
+            gameManager.addScore(coinPoints);
+            //Set this Coin to inactive, visibly removes the object from the world
+            gameObject.SetActive(false);
 
-        //Increase Coin counter
-        gameManager.addCoin();
-        //Increase Score
-        gameManager.addScore(coinPoints);
-        //Set this Coin to inactive, visibly removes the object from the world
-        gameObject.SetActive(false);
+        }
+    
 
     }
 }
