@@ -15,6 +15,8 @@ public class PlayerMovement : MonoBehaviour
 
     private float moveDirection;
     private bool isJumping = false;
+    [SerializeField]
+    private Vector2 playerRespawnPoint;
 
 
     // Start is called before the first frame update

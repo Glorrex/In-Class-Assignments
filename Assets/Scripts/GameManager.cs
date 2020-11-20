@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -39,5 +40,18 @@ public class GameManager : MonoBehaviour
     public void addScore(int points)
     {
         score += points;
+    }
+    void gameOverCheck()
+    {
+        if (Lives < 1)
+        {
+            Debug.Log("The Game is Over... Restarting the Level");
+            SceneManager.LoadScene("SampleScene");
+        }
+    }
+    void removeLife()
+    {
+        Lives--;
+        gameOverCheck();
     }
 }
