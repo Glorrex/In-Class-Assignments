@@ -34,7 +34,7 @@ public class PlayerMovement : MonoBehaviour
         ProcessInputs();
 
         Move();
-        
+        yPositionPitFallDeath();
     }
 
     // Physics Movements
@@ -91,7 +91,7 @@ public class PlayerMovement : MonoBehaviour
         if(gameObject.transform.position.y < -25)
         {
             this.transform.position = playerRespawnPoint;
-         
+            gameManager.removeLife();
         }
     }
 }
