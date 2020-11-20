@@ -6,7 +6,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField]
-    private Vector2 playerRespawnPoint;
+    private GameObject playerRespawnPoint;
     [SerializeField]
     private GameManager gameManager;
     [SerializeField]
@@ -90,7 +90,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if(gameObject.transform.position.y < -25)
         {
-            this.transform.position = playerRespawnPoint;
+            this.transform.position = playerRespawnPoint.transform.position;
             gameManager.removeLife();
         }
     }
