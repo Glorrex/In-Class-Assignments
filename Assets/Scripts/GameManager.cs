@@ -1,62 +1,86 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.WSA;
 
 public class GameManager : MonoBehaviour
 {
+    // Variables
     [SerializeField]
-    public int Lives = 3;
+    private int lives = 3;
+
     [SerializeField]
     private int score;
+
     [SerializeField]
     private int coins;
+
     [SerializeField]
     private bool isGameOver = false;
+
     private void Awake()
     {
-        // check is this is the first run and either create the PlayerPrefs o
-        // or Set the UI to the existing PlayerPrefs
-        if (!PlayerPrefs.HasKey("Lives"))
+        // Check if this is the first run or if the game is over
+        // either create 
+        if (!PlayerPrefs.HasKey("lives"))
         {
-            PlayerPrefs.SetInt("Lives", Lives);
+            PlayerPrefs.SetInt("lives", lives);
         }
         else
         {
-            Lives = PlayerPrefs.GetInt("Lives");
+            lives = PlayerPrefs.GetInt("lives");
         }
         if (!PlayerPrefs.HasKey("score"))
         {
-            PlayerPrefs.SetInt("score", score);
+            PlayerPrefs.SetInt("score", 0);
         }
         else
         {
-            Lives = PlayerPrefs.GetInt("score");
+            score = PlayerPrefs.GetInt("score");
         }
-        if (!PlayerPrefs.HasKey("coins"))
+        if (!PlayerPrefs.HasKey("lives"))
         {
-            PlayerPrefs.SetInt("coins", coins);
+            PlayerPrefs.SetInt("coins", 0);
         }
         else
         {
-            Lives = PlayerPrefs.GetInt("coins");
+            coins = PlayerPrefs.GetInt("coins");
         }
-        if (isGameOver||Lives<1)
+
+        if (isGameOver || lives < 1)
         {
-            Lives = 3;
+            lives = 3;
             coins = 0;
             score = 0;
-            isGameOver = false;
+            setGameOver(false);
         }
     }
+
+    private void OnApplicationQuit()
+    {
+        // Removes All PlayerPrefs 
+        PlayerPrefs.DeleteAll();
+    }
+
+    // Methods or Functions
+
+    public void setGameOver(bool isGameOver)
+    {
+        this.isGameOver = isGameOver;
+    }
+
     public int getLives()
     {
-        return this.Lives;
+        return this.lives;
     }
+
     public int getScore()
     {
         return this.score;
     }
+
     public int getCoins()
     {
         return this.coins;
@@ -64,40 +88,48 @@ public class GameManager : MonoBehaviour
 
     public void addLife()
     {
-        Lives++; // add +1 to lives
-        PlayerPrefs.SetInt("Lives", Lives);
+        lives++;  // add +1 to lives
+        PlayerPrefs.SetInt("lives", lives);
     }
-    public void addCoin() // add +1 to coins
+
+    public void removeLife()
     {
-        coins++;
+        lives--; // remove -1 from lives
+        gameOverCheck();
+        PlayerPrefs.SetInt("lives", lives);
+    }
+
+    public void addCoin()
+    {
+        coins++; // add +1 to coins
+        PlayerPrefs.SetInt("coins", coins);
+
         if (coins > 99)
         {
             addLife(); // add an extra life
+            PlayerPrefs.SetInt("lives", lives);
             coins = 0; // reset coins to zero
             PlayerPrefs.SetInt("coins", coins);
         }
     }
+
     public void addScore(int points)
     {
         score += points;
         PlayerPrefs.SetInt("score", score);
     }
-    private void OnApplicationQuit()
-    {
-        PlayerPrefs.DeleteAll();
-    }
+
     void gameOverCheck()
     {
-        if (Lives < 1)
+        if (lives < 1)
         {
-            Debug.Log("The Game is Over... Restarting the Level");
+            Debug.Log("The Game is Over... Restarting Level");
+
+            setGameOver(true);
+            // then restart the scene
             SceneManager.LoadScene("SampleScene");
-            isGameOver = true;
+
+
         }
-    }
-    public void removeLife()
-    {
-        Lives--;
-        gameOverCheck();
     }
 }
