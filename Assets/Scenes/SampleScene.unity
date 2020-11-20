@@ -65368,7 +65368,7 @@ MonoBehaviour:
   walkingSpeed: 5
   jumpForce: 500
   runMultiplier: 2
-  playerRespawnPoint: {x: 0, y: 0}
+  playerRespawnPoint: {x: -49.4, y: -13.296}
 --- !u!61 &1843202657
 BoxCollider2D:
   m_ObjectHideFlags: 0
