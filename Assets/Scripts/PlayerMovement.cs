@@ -34,7 +34,7 @@ public class PlayerMovement : MonoBehaviour
         ProcessInputs();
 
         Move();
-        yPositionPitFallDeath();
+        //yPositionPitFallDeath();
     }
 
     // Physics Movements
@@ -78,12 +78,27 @@ public class PlayerMovement : MonoBehaviour
         return transform.Find("GroundCheck").GetComponent<GroundCheck>().isGrounded;
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D collider)
     {
         //Check tto see if player is touching an Enemy
-        if (collision.CompareTag("Enemy"))
+        if (collider.CompareTag("Enemy"))
+            Die();
         {
-            Debug.Log("The player is touching" + collision.tag + "tag!");
+            {
+                Debug.Log("The player is touching" + collider.tag + "tag!");
+            }
+            {
+            }
+        }
+        if (collider.CompareTag("DeathZone"))
+        {
+            Debug.Log("The Player Hit The DeathZone");
+            Die();
+        }
+        void Die()
+        {
+            this.transform.position = playerRespawnPoint.transform.position;
+            gameManager.removeLife();
         }
     }
     void yPositionPitFallDeath()
