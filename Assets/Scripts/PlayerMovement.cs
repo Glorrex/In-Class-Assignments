@@ -5,19 +5,21 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    [SerializeField]
+    private Vector2 playerRespawnPoint;
+    [SerializeField]
+    private GameManager gameManager;
+    [SerializeField]
+    
+    private LayerMask enemyLayerMask;
     public float moveSpeed;
     public float walkingSpeed = 1f;
     public float jumpForce;
     public float runMultiplier = 2f;
     
-
     private Rigidbody2D rb;
-
     private float moveDirection;
     private bool isJumping = false;
-    [SerializeField]
-    private Vector2 playerRespawnPoint;
-
 
     // Start is called before the first frame update
     void Start()
@@ -89,6 +91,7 @@ public class PlayerMovement : MonoBehaviour
         if(gameObject.transform.position.y < -25)
         {
             this.transform.position = playerRespawnPoint;
+         
         }
     }
 }

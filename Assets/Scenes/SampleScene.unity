@@ -3822,7 +3822,7 @@ GameObject:
   - component: {fileID: 103826873}
   - component: {fileID: 103826872}
   - component: {fileID: 103826874}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Spider Enemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -7659,7 +7659,7 @@ GameObject:
   m_Component:
   - component: {fileID: 200459543}
   - component: {fileID: 200459544}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Hitbox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -65364,11 +65364,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ceb8f1f37d15914c8ea7a7589d5d286, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerRespawnPoint: {x: -49.4, y: -13.296}
+  gameManager: {fileID: 1606274634}
+  enemyLayerMask:
+    serializedVersion: 2
+    m_Bits: 1024
   moveSpeed: 1
   walkingSpeed: 5
   jumpForce: 500
   runMultiplier: 2
-  playerRespawnPoint: {x: -49.4, y: -13.296}
 --- !u!61 &1843202657
 BoxCollider2D:
   m_ObjectHideFlags: 0

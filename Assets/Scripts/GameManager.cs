@@ -49,7 +49,7 @@ public class GameManager : MonoBehaviour
             SceneManager.LoadScene("SampleScene");
         }
     }
-    void removeLife()
+    public void removeLife()
     {
         Lives--;
         gameOverCheck();
