@@ -84,4 +84,11 @@ public class PlayerMovement : MonoBehaviour
             Debug.Log("The player is touching" + collision.tag + "tag!");
         }
     }
+    void yPositionPitFallDeath()
+    {
+        if(gameObject.transform.position.y < -25)
+        {
+            this.transform.position = playerRespawnPoint;
+        }
+    }
 }
