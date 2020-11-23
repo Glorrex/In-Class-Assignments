@@ -40,7 +40,7 @@ public class GameManager : MonoBehaviour
         {
             score = PlayerPrefs.GetInt("score");
         }
-        if (!PlayerPrefs.HasKey("lives"))
+        if (!PlayerPrefs.HasKey("coins"))
         {
             PlayerPrefs.SetInt("coins", 0);
         }
@@ -85,7 +85,6 @@ public class GameManager : MonoBehaviour
     {
         return this.coins;
     }
-
     public void addLife()
     {
         lives++;  // add +1 to lives
@@ -98,7 +97,6 @@ public class GameManager : MonoBehaviour
         gameOverCheck();
         PlayerPrefs.SetInt("lives", lives);
     }
-
     public void addCoin()
     {
         coins++; // add +1 to coins
@@ -112,7 +110,6 @@ public class GameManager : MonoBehaviour
             PlayerPrefs.SetInt("coins", coins);
         }
     }
-
     public void addScore(int points)
     {
         score += points;

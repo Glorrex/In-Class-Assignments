@@ -77,7 +77,7 @@ public class PlayerMovement : MonoBehaviour
 
         return transform.Find("GroundCheck").GetComponent<GroundCheck>().isGrounded;
     }
-
+    
     private void OnTriggerEnter2D(Collider2D collider)
     {
         //Check tto see if player is touching an Enemy
@@ -100,6 +100,8 @@ public class PlayerMovement : MonoBehaviour
             this.transform.position = playerRespawnPoint.transform.position;
             gameManager.removeLife();
         }
+       
+            
     }
     void yPositionPitFallDeath()
     {
