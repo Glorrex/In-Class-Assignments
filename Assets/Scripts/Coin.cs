@@ -31,7 +31,7 @@ public class Coin : MonoBehaviour
             gameObject.SetActive(false);
 
         }
-    
+        
 
     }
 }
