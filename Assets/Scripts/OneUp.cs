@@ -8,7 +8,7 @@ public class OneUp : MonoBehaviour
     private GameManager gameManager;
     // Creaate a standard score for coins
     [SerializeField]
-    private int scorePoints = 100;
+    private int scorePoints = 25;
     // Do some action(s) when the item when the item this script is on is awakened in the scene
     private void Awake()
     {
