@@ -110,6 +110,11 @@ public class GameManager : MonoBehaviour
             PlayerPrefs.SetInt("coins", coins);
         }
     }
+    public void addlife()
+    {
+        lives++; // add +1 to lives
+        PlayerPrefs.SetInt("lives", lives);
+    }
     public void addScore(int points)
     {
         score += points;
