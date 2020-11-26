@@ -20,6 +20,10 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private bool isGameOver = false;
 
+
+    public int oneupboxcounter = 0;
+    public int coinboxcounter = 0;
+
     private void Awake()
     {
         // Check if this is the first run or if the game is over
