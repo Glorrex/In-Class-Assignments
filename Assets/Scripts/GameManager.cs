@@ -20,8 +20,9 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private bool isGameOver = false;
 
-
+    [SerializeField]
     public int oneupboxcounter = 0;
+    [SerializeField]
     public int coinboxcounter = 0;
 
     private void Awake()

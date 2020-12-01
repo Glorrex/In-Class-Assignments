@@ -9,6 +9,11 @@ public class CoinBlock : MonoBehaviour
     // Creaate a standard score for coins
     [SerializeField]
     private int coinPoints = 100;
+    // Create counter for numbers of time hit
+    [SerializeField]
+    private int hitcounter = 0;
+    [SerializeField]
+    private int hitlimit = 5;
     // Do some action(s) when the item when the item this script is on is awakened in the scene
     private void Awake()
     {
@@ -23,13 +28,19 @@ public class CoinBlock : MonoBehaviour
         //check for player tag
         if (collision.CompareTag("Player"))
         {
-            //Increase Coin counter
-            gameManager.addCoin();
-            //Increase Score
-            gameManager.addScore(coinPoints);
-            //Set this Coin to inactive, visibly removes the object from the world
-            //gameObject.SetActive(false);
-
+            //if (gameManager.coinboxcounter < 1)
+            if (hitcounter<hitlimit)
+            {
+                //Incerased Coin Box counter
+                //gameManager.coinboxcounter++;
+                hitcounter++;
+                //Increase Coin counter
+                gameManager.addCoin();
+                //Increase Score
+                gameManager.addScore(coinPoints);
+                //Set this Coin to inactive, visibly removes the object from the world
+                //gameObject.SetActive(false);
+            }
         }
 
 
