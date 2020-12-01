@@ -38,6 +38,7 @@ public class CoinBlock : MonoBehaviour
                 gameManager.addLife();
                 //Increase Score
                 gameManager.addScore(coinPoints);
+                gameManager.addCoin();
                 //Set this Coin to inactive, visibly removes the object from the world
                 //gameObject.SetActive(false);
             }
