@@ -8,14 +8,14 @@ public class CoinBlock : MonoBehaviour
     private GameManager gameManager;
     // Creaate a standard score for coins
     [SerializeField]
-    private int coinPoints = 100;
+    private int coinPoints = 25;
     // Create counter for numbers of time hit
     [SerializeField]
     private int hitcounter = 0;
     [SerializeField]
     private int hitlimit = 5;
     // Do some action(s) when the item when the item this script is on is awakened in the scene
-    private void Awake()
+    private void Awake()    
     {
         gameManager = FindObjectOfType<GameManager>();
     }
@@ -35,7 +35,7 @@ public class CoinBlock : MonoBehaviour
                 //gameManager.coinboxcounter++;
                 hitcounter++;
                 //Increase Coin counter
-                gameManager.addCoin();
+                gameManager.addLife();
                 //Increase Score
                 gameManager.addScore(coinPoints);
                 //Set this Coin to inactive, visibly removes the object from the world

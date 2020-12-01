@@ -8,7 +8,11 @@ public class OneUp : MonoBehaviour
     private GameManager gameManager;
     // Creaate a standard score for coins
     [SerializeField]
-    private int scorePoints = 25;
+    private int scorePoints = 100;
+    [SerializeField]
+    private int oneuphitcounter = 0;
+    [SerializeField]
+    private int oneuphitlimit = 5;
     // Do some action(s) when the item when the item this script is on is awakened in the scene
     private void Awake()
     {
@@ -23,13 +27,19 @@ public class OneUp : MonoBehaviour
         //check for player tag
         if (collision.CompareTag("Player"))
         {
-            //Increase Coin counter
-            gameManager.addlife();
-            //Increase Score
-            gameManager.addScore(scorePoints);
-            //Set this Coin to inactive, visibly removes the object from the world
-            //gameObject.SetActive(false);
-
+            //if (gameManager.coinboxcounter < 1)
+            if (oneuphitcounter < oneuphitlimit)
+            {
+                //Incerased Coin Box counter
+                //gameManager.coinboxcounter++;
+                oneuphitcounter++;
+                //Increase Coin counter
+                gameManager.addLife();
+                //Increase Score
+                gameManager.addScore(scorePoints);
+                //Set this Coin to inactive, visibly removes the object from the world
+                //gameObject.SetActive(false);
+            }
         }
 
 
