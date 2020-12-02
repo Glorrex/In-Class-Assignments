@@ -6,7 +6,7 @@ public class CoinBlock : MonoBehaviour
 {
     //Create a Referance for the Game Manager
     private GameManager gameManager;
-    // Creaate a standard score for coins
+    // Create a standard score for coins
     [SerializeField]
     private int coinPoints = 25;
     // Create counter for numbers of time hit
@@ -35,7 +35,7 @@ public class CoinBlock : MonoBehaviour
                 //gameManager.coinboxcounter++;
                 hitcounter++;
                 //Increase Coin counter
-                gameManager.addLife();
+                //gameManager.addLife();
                 //Increase Score
                 gameManager.addScore(coinPoints);
                 gameManager.addCoin();
