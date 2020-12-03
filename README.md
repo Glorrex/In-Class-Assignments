@@ -1,3 +1,8 @@
+# Final Project
+## References 
+- https://opengameart.org/content/gotthicvania-swamp : I chose Ansimuz's gotthicvania-swamp sprite sheet for the majority of the background.
+- https://assetstore.unity.com/packages/2d/characters/sunny-land-103349 : Another sprite sheet from Ansimuz was used for the mountains in the background as well as some detail work throughout the level
+- https://studio.youtube.com/channel/UCsZOyEESwA74wtow_1K5_OQ/music : "Jungle Atmosphere Late Night" is the name of the atmospheric track I used from the free youtube audio liberary.
 # Start_Unity_Github_Project
 Use this template to start a Unity3D project using Git and Github. 
 
